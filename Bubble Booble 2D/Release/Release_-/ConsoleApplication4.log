@@ -1,0 +1,43 @@
+﻿Compilación iniciada a las 08/01/2015 0:32:29.
+     1>Proyecto "C:\Users\amatore\documents\visual studio 2013\Projects\ConsoleApplication4\ConsoleApplication4\ConsoleApplication4.vcxproj" en el nodo 2 (Build destinos).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt cData.cpp cDisparo.cpp cEnemy.cpp cGame.cpp cItem.cpp ConsoleApplication4.cpp cPlayer.cpp cScene.cpp cSprite.cpp cTexture.cpp stdafx.cpp
+         cData.cpp
+         cDisparo.cpp
+         cEnemy.cpp
+         cGame.cpp
+     1>cGame.cpp(476): warning C4018: '<' : no coinciden signed/unsigned
+     1>cGame.cpp(490): warning C4018: '<' : no coinciden signed/unsigned
+     1>cGame.cpp(560): warning C4101: 'tex_h2' : variable local sin referencia
+     1>cGame.cpp(560): warning C4101: 'tex_w2' : variable local sin referencia
+         cItem.cpp
+         ConsoleApplication4.cpp
+         cPlayer.cpp
+         cScene.cpp
+     1>cScene.cpp(92): warning C4101: 'res' : variable local sin referencia
+         cSprite.cpp
+         cTexture.cpp
+         stdafx.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Release\ConsoleApplication4.res" ConsoleApplication4.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\amatore\documents\visual studio 2013\Projects\ConsoleApplication4\Release\ConsoleApplication4.exe" /INCREMENTAL:NO /NOLOGO opengl32.lib glu32.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\amatore\documents\visual studio 2013\Projects\ConsoleApplication4\Release\ConsoleApplication4.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\amatore\documents\visual studio 2013\Projects\ConsoleApplication4\Release\ConsoleApplication4.lib" /MACHINE:X86 /SAFESEH Release\ConsoleApplication4.res
+         Release\cData.obj
+         Release\cDisparo.obj
+         Release\cEnemy.obj
+         Release\cGame.obj
+         Release\cItem.obj
+         Release\ConsoleApplication4.obj
+         Release\cPlayer.obj
+         Release\cScene.obj
+         Release\cSprite.obj
+         Release\cTexture.obj
+         Release\stdafx.obj
+         Generando código
+         Generación de código finalizada
+         ConsoleApplication4.vcxproj -> C:\Users\amatore\documents\visual studio 2013\Projects\ConsoleApplication4\Release\ConsoleApplication4.exe
+     1>Compilación del proyecto terminada "C:\Users\amatore\documents\visual studio 2013\Projects\ConsoleApplication4\ConsoleApplication4\ConsoleApplication4.vcxproj" (Build destinos).
+
+Compilación correcta.
+
+Tiempo transcurrido 00:00:33.98

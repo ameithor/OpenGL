@@ -1,0 +1,180 @@
+#include "Globals.h"
+#include "cGame.h"
+
+
+cGame::cGame()
+{
+}
+
+
+cGame::~cGame()
+{
+}
+
+//Game initializations
+bool cGame::Init()
+{
+	bool res = true;
+
+	//Graphics initialization
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, GAME_WIDTH, 0, GAME_HEIGHT, 0, 1);
+	glMatrixMode(GL_MODELVIEW);
+
+	glAlphaFunc(GL_GREATER, 0.05f);
+	glEnable(GL_ALPHA_TEST);
+
+	//Scene initialization
+	res = Data.Load();
+	if (!res) return false;
+
+	res = Scene.LoadLevel(1);
+	if (!res) return false;
+
+
+	Player.SetWidthHeight(32, 32);
+	Player.SetTile(4, 4);
+	Player.SetWidthHeight(32, 32);
+	Player.SetState(STATE_LOOKLEFT);
+
+	LoadDynamicLayer(1);
+
+	return res;
+	
+}
+
+
+bool cGame::LoadDynamicLayer(int lvl)
+{
+	bool res;
+	FILE *fd;
+	char file[32];
+	int i, j, id;
+	char c;
+
+	res = true;
+
+	if (level<10) sprintf(file, "Levels/%s0%d%s", (char *)DYNAMIC_FILENAME, lvl, (char *)FILENAME_EXT);
+	else		 sprintf(file, "Levels/%s%d%s", (char *)DYNAMIC_FILENAME, lvl, (char *)FILENAME_EXT);
+
+	fd = fopen(file, "r");
+	if (fd == NULL) return false;
+
+	for (j = SCENE_HEIGHT - 1; j >= 0; j--)
+	{
+		for (i = 0; i<SCENE_WIDTH; i++)
+		{
+			fscanf(fd, "%i", &id);
+			if (id == 5)
+			{
+				std::cout << "New heart en el tile " << i << "-" << j << "\n";
+				items.push_back(new cHeart);
+				items.back()->SetTile(i, j);
+			}
+			fscanf(fd, "%c", &c); //pass comma or enter
+		}
+	}
+
+	fclose(fd);
+	return res;
+}
+
+
+//Game loop
+bool cGame::Loop()
+{
+
+	bool res = true;
+
+	res = Process();
+	if (res){
+		
+		Render();
+		
+	}
+	
+
+	return res;
+}
+
+//Game finalizations
+void cGame::Finalize()
+{
+}
+
+
+//Game input
+void cGame::ReadKeyboard(unsigned char key, int x, int y, bool press)
+{
+	keys[key] = press;
+
+	if (key == 27) { // If Escape has been pressed Application will be colsed
+		
+		exit(0);
+		
+	}
+}
+
+
+void cGame::ReadMouse(int button, int state, int x, int y)
+{
+}
+
+//Game process
+bool cGame::Process()
+{
+	bool res = true;
+	
+	//Process Input
+	if (keys[27])	res = false;
+
+	if (keys[GLUT_KEY_UP])			Player.Jump(Scene.GetMap());
+	if (keys[GLUT_KEY_LEFT])			Player.MoveLeft(Scene.GetMap());
+	else if (keys[GLUT_KEY_RIGHT])	Player.MoveRight(Scene.GetMap());
+	else Player.Stop();
+
+
+	//Game Logic
+	Player.Logic(Scene.GetMap());
+	
+	return res;
+}
+
+//Game output
+void cGame::Render()
+{
+	int tex_w, tex_h;
+	int tex_w2, tex_h2;
+	//glClear(GL_COLOR_BUFFER_BIT);
+	
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glLoadIdentity();
+	
+	//Scene.Draw();
+	Scene.Draw(Data.GetID(IMG_BLOCKS));
+	//Scene.Draw(Data.GetID(IMG_HEART));
+	Player.Draw(Data.GetID(IMG_PLAYER));
+	int x, y;
+	Data.GetSize(IMG_HEART, &tex_w, &tex_h);
+	std::list<cItem*>::iterator it_t;
+	int i = 0;
+	for (it_t = items.begin(); it_t != items.end(); it_t++)
+	{
+
+
+		if (dynamic_cast<cItem*>(*it_t) != NULL) //verificamos a que subclase pertenece el puntero
+		{
+			
+				std::cout << "x: " << (*it_t)->GetX() << " y: " << (*it_t)->GetY();
+				x = (*it_t)->GetX();
+				y = (*it_t)->GetY();
+			(*it_t)->Draw(Data.GetID(IMG_HEART),x,y, tex_w, tex_h, true);
+		}
+	}
+	
+
+	glutSwapBuffers();
+}

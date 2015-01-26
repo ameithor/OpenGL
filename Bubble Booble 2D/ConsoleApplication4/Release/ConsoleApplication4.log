@@ -1,0 +1,35 @@
+﻿Compilación iniciada a las 10/01/2015 1:37:01.
+     1>Proyecto "C:\Users\amatore\documents\visual studio 2013\Projects\ConsoleApplication4\ConsoleApplication4\ConsoleApplication4.vcxproj" en el nodo 2 (Build destinos).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt cDisparo.cpp cEnemy.cpp cGame.cpp cItem.cpp ConsoleApplication4.cpp cPlayer.cpp cScene.cpp cSprite.cpp
+         cDisparo.cpp
+     1>c:\users\amatore\documents\visual studio 2013\projects\consoleapplication4\consoleapplication4\cPlayer.h(17): error C2065: 'cDisparo' : identificador no declarado
+     1>c:\users\amatore\documents\visual studio 2013\projects\consoleapplication4\consoleapplication4\cPlayer.h(17): error C2059: error de sintaxis : '>'
+     1>c:\users\amatore\documents\visual studio 2013\projects\consoleapplication4\consoleapplication4\cPlayer.h(17): error C2976: 'std::list' : no hay suficientes argumentos de plantilla
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\list(861) : vea la declaración de 'std::list'
+         cEnemy.cpp
+         cGame.cpp
+     1>cGame.cpp(471): warning C4018: '<' : no coinciden signed/unsigned
+     1>cGame.cpp(485): warning C4018: '<' : no coinciden signed/unsigned
+     1>cGame.cpp(555): warning C4101: 'tex_h2' : variable local sin referencia
+     1>cGame.cpp(555): warning C4101: 'tex_w2' : variable local sin referencia
+         cItem.cpp
+         ConsoleApplication4.cpp
+         cPlayer.cpp
+     1>c:\users\amatore\documents\visual studio 2013\projects\consoleapplication4\consoleapplication4\cItem.h(8): error C2504: 'cSprite' : clase base sin definir
+     1>c:\users\amatore\documents\visual studio 2013\projects\consoleapplication4\consoleapplication4\cItem.h(35): error C2061: error de sintaxis : identificador 'cPlayer'
+     1>c:\users\amatore\documents\visual studio 2013\projects\consoleapplication4\consoleapplication4\cItem.h(50): error C2061: error de sintaxis : identificador 'cPlayer'
+         cScene.cpp
+     1>cScene.cpp(92): warning C4101: 'res' : variable local sin referencia
+         cSprite.cpp
+     1>c:\users\amatore\documents\visual studio 2013\projects\consoleapplication4\consoleapplication4\cPlayer.h(13): error C2504: 'cSprite' : clase base sin definir
+     1>c:\users\amatore\documents\visual studio 2013\projects\consoleapplication4\consoleapplication4\cPlayer.h(17): error C2065: 'cDisparo' : identificador no declarado
+     1>c:\users\amatore\documents\visual studio 2013\projects\consoleapplication4\consoleapplication4\cPlayer.h(17): error C2059: error de sintaxis : '>'
+     1>c:\users\amatore\documents\visual studio 2013\projects\consoleapplication4\consoleapplication4\cPlayer.h(17): error C2976: 'std::list' : no hay suficientes argumentos de plantilla
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\list(861) : vea la declaración de 'std::list'
+     1>c:\users\amatore\documents\visual studio 2013\projects\consoleapplication4\consoleapplication4\cItem.h(8): error C2504: 'cSprite' : clase base sin definir
+     1>Compilación del proyecto terminada "C:\Users\amatore\documents\visual studio 2013\Projects\ConsoleApplication4\ConsoleApplication4\ConsoleApplication4.vcxproj" (Build destinos) -- ERROR.
+
+ERROR al compilar.
+
+Tiempo transcurrido 00:00:14.42
